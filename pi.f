@@ -22,7 +22,7 @@ C initialize random numbers
              if (z .le. 1) count =count+1
           end do
           pi(j)= count/niter*4.
-          write(*,10) niter,pi(j)
-10        format('Number of trials is: 'i5,'  estimate of pi is:',f8.5)
        end do
+       write(*,10) niter,pi(j)
+10     format('Number of trials is: 'i5,'  estimate of pi is:',f8.5)
        end
