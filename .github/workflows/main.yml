@@ -27,3 +27,8 @@ jobs:
         run: |
           gfortran -g pi.f -o pi
           ./pi
+          
+      # try mpi
+      - name: mpi to the max
+        run: |
+          mpif90 --version
