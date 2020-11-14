@@ -28,7 +28,19 @@ jobs:
           gfortran -g pi.f -o pi
           ./pi
           
-      # try mpi
-      - name: mpi to the max
+      # install open mpi
+      - name: download-openmpi
+        run: wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz
+      - name: extract-openmpi
+        run: tar -xvf ./openmpi-4.0.2.tar.gz
+      - name: configure-openmpi
+        run: ./openmpi-4.0.2/configure --prefix="/home/${USER}/.openmpi"
+      - name: install-openmpi
         run: |
-          mpif90 --version
+          make -j
+          sudo make install
+          
+      # mpi to the max
+      - name: mpi to the max
+        run: mpif90 --version
+        
