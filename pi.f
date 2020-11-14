@@ -23,6 +23,6 @@ C initialize random numbers
           end do
           pi(j)= count/niter*4.
        end do
-       write(*,10) niter,pi(j)
+       write(*,10) niter,pi(100)
 10     format('Number of trials is: 'i5,'  estimate of pi is:',f8.5)
        end
