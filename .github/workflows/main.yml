@@ -25,6 +25,6 @@ jobs:
       - name: docker test
         run: |
           gcc --version
-          gfortran -g pi.f -o pi
-          ./pi
+          mpif90 -g hello_mpi.f -o hello
+          ./hello
 
