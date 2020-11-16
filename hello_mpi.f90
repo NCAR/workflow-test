@@ -1,4 +1,4 @@
-c  Fortran example  
+!  Fortran example  
    program hello
    use mpi
    integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
