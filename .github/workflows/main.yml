@@ -21,26 +21,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: docker test
+        uses: docker://hkershaw/hello-test:latest
+        run: gcc --version
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          gfortran -g pi.f -o pi
-          ./pi
-          
-      # install open mpi
-      - name: download-openmpi
-        run: wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz
-      - name: extract-openmpi
-        run: tar -xvf ./openmpi-4.0.2.tar.gz
-      - name: configure-openmpi
-        run: ./openmpi-4.0.2/configure --prefix="/home/${USER}/.openmpi"
-      - name: install-openmpi
-        run: |
-          make -j
-          sudo make install
-          
-      # mpi to the max
-      - name: mpi to the max
-        run: mpif90 --version
-        
